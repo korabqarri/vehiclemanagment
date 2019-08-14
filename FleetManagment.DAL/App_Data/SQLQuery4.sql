@@ -1,0 +1,1 @@
+﻿DBCC CHECKIDENT('dbo.UserAccount',RESEED,0)
