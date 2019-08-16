@@ -11,18 +11,24 @@ namespace FleetManagment
     {
         private readonly IncidentBLL _incidentService;
 
-        private readonly StationResponseBLL stationResponseBll;
+        private readonly StationBLL stationBll;
+        private readonly VehicleBLL vehicleBLL;
 
-        private readonly IEnumerable<StationResponse> stationResponses;
+
+        private readonly IEnumerable<Station> stations;
+        private List<Vehicle> vehicles;
+        private int requiredVehicles;
         public IncidentListForm()
         {
             _incidentService = new IncidentBLL();
             InitializeComponent();
 
-            stationResponseBll = new StationResponseBLL();
-            stationResponses = stationResponseBll.GetAll();
+            stationBll = new StationBLL();
+            stations = stationBll.GetAll();
 
-            cmbResponseId.DataSource = stationResponses;
+            vehicleBLL = new VehicleBLL();
+
+            cmbStation.DataSource = stations;
             txtFirstname.Text = ApplicationCookie.CurrentUser.Name;
             txtLastname.Text = ApplicationCookie.CurrentUser.Surname;
         }
@@ -49,19 +55,29 @@ namespace FleetManagment
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            Incident newIncident = new Incident();
-            newIncident = fillObject(newIncident);
-            if (newIncident != null)
+
+            if (vehicles.Count > 0)
             {
-                var registered = _incidentService.Insert(newIncident);
-                if (registered)
+
+                Incident newIncident = new Incident();
+                newIncident = fillObject(newIncident);
+                newIncident.Vehicles = vehicles.GetRange(0, requiredVehicles - 1);
+                if (newIncident != null)
                 {
-                    MessageBox.Show("U regjistrua me sukses");
-                    Reset();
-                    RefreshIncidentList();
+                    var registered = _incidentService.Insert(newIncident);
+                    if (registered)
+                    {
+                        MessageBox.Show("U regjistrua me sukses");
+                        Reset();
+                        RefreshIncidentList();
+                    }
+                    else
+                        MessageBox.Show("Regjistrimi deshtoi. Ju lutem kontrolloni formen");
                 }
-                else
-                    MessageBox.Show("Regjistrimi deshtoi. Ju lutem kontrolloni formen");
+            }
+            else
+            {
+                MessageBox.Show("Te gjitha veturat jane te zena");
             }
         }
 
@@ -93,9 +109,11 @@ namespace FleetManagment
                 Response response = responseBll.Get(responseSelected.ResponseId);
                 chbIsEmergency.Checked = response.Emergency;
 
+                requiredVehicles = responseSelected.NumberOfVehicles;
+
 
                 //Number of vehicles
-                lblComment.Text = responseSelected.NumberOfVehicles.ToString() + " vehicles required";
+                lblComment.Text = requiredVehicles.ToString() + " vehicles required";
 
             }
         }
@@ -108,6 +126,28 @@ namespace FleetManagment
             txtLatitude.Text = "";
             txtLongitude.Text = "";
             lblComment.Text = "";
+            lblVehicles.Text = "";
+        }
+
+        private void CmbStation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+
+            Station stationSelected = (Station)comboBox.SelectedItem;
+
+            cmbResponseId.SelectedIndex = -1;
+            lblComment.Text = "";
+            lblVehicles.Text = "";
+
+            if (stationSelected != null)
+            {
+                StationResponseBLL stationResponseBll = new StationResponseBLL();
+                cmbResponseId.DataSource = stationResponseBll.GetByStation(stationSelected.ID);
+
+                vehicles = vehicleBLL.GetStationVehicles(stationSelected.ID);
+                lblVehicles.Text = vehicles.Count.ToString() + " vehicles available";
+
+            }
         }
     }
 }

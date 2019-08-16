@@ -101,6 +101,30 @@ namespace FleetManagment.DAL
             }
         }
 
+        public IEnumerable<StationResponse> GetByStation(int stationId)
+        {
+            using (IDbConnection connection = Connection())
+            {
+                List<StationResponse> stationResponses = null;
+                String sql = "usp_StationResponseSelectByStation";
+                using (IDbCommand command = Command(connection, sql, CommandType.StoredProcedure))
+                {
+                    DAO.AddParameter(command, "StationId", stationId);
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        stationResponses = new List<StationResponse>();
+                        while (reader.Read())
+                        {
+                            stationResponses.Add(ToObject(reader));
+                        }
+                    }
+
+                    return stationResponses;
+
+                }
+            }
+        }
+
         public StationResponse ToObject(IDataReader reader)
         {
             try

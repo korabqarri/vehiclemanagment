@@ -38,5 +38,9 @@ namespace FleetManagment.BLL
         {
             return _vehicleDal.GetAll();
         }
+        public List<Vehicle> GetStationVehicles(int stationId)
+        {
+            return _vehicleDal.GetStationVehicles(stationId);
+        }
     }
 }

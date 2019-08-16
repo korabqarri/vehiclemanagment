@@ -38,5 +38,10 @@ namespace FleetManagment.BLL
         {
             return _stationResponseDal.GetAll();
         }
+
+        public IEnumerable<StationResponse> GetByStation(int stationId)
+        {
+            return _stationResponseDal.GetByStation(stationId);
+        }
     }
 }

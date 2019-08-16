@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FleetManagment.BO
 {
@@ -16,6 +17,8 @@ namespace FleetManagment.BO
         public bool Emergency { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
+
+        public List<Vehicle> Vehicles { get; set; }
 
     }
 }

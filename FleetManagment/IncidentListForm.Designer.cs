@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.lblComment = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtLastname = new System.Windows.Forms.TextBox();
@@ -47,6 +48,9 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbStation = new System.Windows.Forms.ComboBox();
+            this.stationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dtTime = new System.Windows.Forms.DateTimePicker();
             this.cmbResponseId = new System.Windows.Forms.ComboBox();
@@ -71,12 +75,13 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblComment = new System.Windows.Forms.Label();
+            this.lblVehicles = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stationResponseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncidentList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -89,29 +94,40 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.lblVehicles);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.lblComment);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.btnSave);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.groupBox3);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.groupBox2);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.groupBox1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dgvIncidentList);
-            this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1943, 1268);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1283, 743);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.LeftToolStripPanelVisible = false;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(1943, 1268);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1283, 768);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
+            // lblComment
+            // 
+            this.lblComment.AutoSize = true;
+            this.lblComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComment.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblComment.Location = new System.Drawing.Point(40, 319);
+            this.lblComment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblComment.Name = "lblComment";
+            this.lblComment.Size = new System.Drawing.Size(0, 17);
+            this.lblComment.TabIndex = 79;
+            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(1323, 426);
+            this.btnSave.Location = new System.Drawing.Point(882, 277);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(517, 50);
+            this.btnSave.Size = new System.Drawing.Size(345, 32);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -123,48 +139,46 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txtFirstname);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Location = new System.Drawing.Point(1322, 32);
+            this.groupBox3.Location = new System.Drawing.Point(881, 21);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(518, 325);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(345, 211);
             this.groupBox3.TabIndex = 78;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Reporter Info";
             // 
             // txtLastname
             // 
-            this.txtLastname.Location = new System.Drawing.Point(67, 158);
-            this.txtLastname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLastname.Location = new System.Drawing.Point(45, 103);
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.ReadOnly = true;
-            this.txtLastname.Size = new System.Drawing.Size(384, 26);
+            this.txtLastname.Size = new System.Drawing.Size(257, 20);
             this.txtLastname.TabIndex = 55;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(63, 133);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(42, 86);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 20);
+            this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 54;
             this.label8.Text = "Lastname:";
             // 
             // txtFirstname
             // 
-            this.txtFirstname.Location = new System.Drawing.Point(67, 80);
-            this.txtFirstname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtFirstname.Location = new System.Drawing.Point(45, 52);
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.ReadOnly = true;
-            this.txtFirstname.Size = new System.Drawing.Size(384, 26);
+            this.txtFirstname.Size = new System.Drawing.Size(257, 20);
             this.txtFirstname.TabIndex = 53;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(63, 55);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(42, 36);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 20);
+            this.label11.Size = new System.Drawing.Size(55, 13);
             this.label11.TabIndex = 52;
             this.label11.Text = "Firstname:";
             // 
@@ -178,87 +192,85 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtAddress);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(682, 30);
+            this.groupBox2.Location = new System.Drawing.Point(455, 19);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(518, 446);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(345, 290);
             this.groupBox2.TabIndex = 77;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Location Info";
             // 
             // txtLongitude
             // 
-            this.txtLongitude.Location = new System.Drawing.Point(271, 299);
-            this.txtLongitude.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLongitude.Location = new System.Drawing.Point(181, 194);
             this.txtLongitude.Name = "txtLongitude";
-            this.txtLongitude.Size = new System.Drawing.Size(171, 26);
+            this.txtLongitude.Size = new System.Drawing.Size(115, 20);
             this.txtLongitude.TabIndex = 73;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(267, 274);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(178, 178);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 20);
+            this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 72;
             this.label4.Text = "Longitude:";
             // 
             // txtLatitude
             // 
-            this.txtLatitude.Location = new System.Drawing.Point(71, 299);
-            this.txtLatitude.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLatitude.Location = new System.Drawing.Point(47, 194);
             this.txtLatitude.Name = "txtLatitude";
-            this.txtLatitude.Size = new System.Drawing.Size(176, 26);
+            this.txtLatitude.Size = new System.Drawing.Size(119, 20);
             this.txtLatitude.TabIndex = 71;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 274);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(45, 178);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 70;
             this.label2.Text = "Latitude:";
             // 
             // txtAddressAdditional
             // 
-            this.txtAddressAdditional.Location = new System.Drawing.Point(71, 160);
+            this.txtAddressAdditional.Location = new System.Drawing.Point(47, 104);
+            this.txtAddressAdditional.Margin = new System.Windows.Forms.Padding(2);
             this.txtAddressAdditional.Multiline = true;
             this.txtAddressAdditional.Name = "txtAddressAdditional";
-            this.txtAddressAdditional.Size = new System.Drawing.Size(384, 87);
+            this.txtAddressAdditional.Size = new System.Drawing.Size(257, 58);
             this.txtAddressAdditional.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(67, 133);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(45, 86);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 20);
+            this.label6.Size = new System.Drawing.Size(121, 13);
             this.label6.TabIndex = 54;
             this.label6.Text = "Additional Location Info:";
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(71, 80);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAddress.Location = new System.Drawing.Point(47, 52);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(384, 26);
+            this.txtAddress.Size = new System.Drawing.Size(257, 20);
             this.txtAddress.TabIndex = 0;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(67, 55);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(45, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 20);
+            this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 52;
             this.label7.Text = "Address:";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbStation);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtDescription);
             this.groupBox1.Controls.Add(this.dtTime);
             this.groupBox1.Controls.Add(this.cmbResponseId);
@@ -266,19 +278,47 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(54, 32);
+            this.groupBox1.Location = new System.Drawing.Point(36, 21);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(518, 446);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(345, 290);
             this.groupBox1.TabIndex = 76;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Incident Info";
             // 
+            // cmbStation
+            // 
+            this.cmbStation.DataSource = this.stationBindingSource;
+            this.cmbStation.DisplayMember = "Name";
+            this.cmbStation.FormattingEnabled = true;
+            this.cmbStation.Location = new System.Drawing.Point(49, 101);
+            this.cmbStation.Name = "cmbStation";
+            this.cmbStation.Size = new System.Drawing.Size(257, 21);
+            this.cmbStation.TabIndex = 69;
+            this.cmbStation.ValueMember = "ID";
+            this.cmbStation.SelectedIndexChanged += new System.EventHandler(this.CmbStation_SelectedIndexChanged);
+            // 
+            // stationBindingSource
+            // 
+            this.stationBindingSource.DataSource = typeof(FleetManagment.BO.Station);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(46, 84);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.TabIndex = 70;
+            this.label9.Text = "Station:";
+            // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(73, 82);
+            this.txtDescription.Location = new System.Drawing.Point(49, 53);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(384, 87);
+            this.txtDescription.Size = new System.Drawing.Size(257, 19);
             this.txtDescription.TabIndex = 0;
             // 
             // dtTime
@@ -286,9 +326,10 @@
             this.dtTime.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtTime.Enabled = false;
             this.dtTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTime.Location = new System.Drawing.Point(73, 376);
+            this.dtTime.Location = new System.Drawing.Point(49, 244);
+            this.dtTime.Margin = new System.Windows.Forms.Padding(2);
             this.dtTime.Name = "dtTime";
-            this.dtTime.Size = new System.Drawing.Size(384, 26);
+            this.dtTime.Size = new System.Drawing.Size(257, 20);
             this.dtTime.TabIndex = 68;
             // 
             // cmbResponseId
@@ -296,10 +337,9 @@
             this.cmbResponseId.DataSource = this.stationResponseBindingSource;
             this.cmbResponseId.DisplayMember = "ResponseName";
             this.cmbResponseId.FormattingEnabled = true;
-            this.cmbResponseId.Location = new System.Drawing.Point(73, 221);
-            this.cmbResponseId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbResponseId.Location = new System.Drawing.Point(49, 155);
             this.cmbResponseId.Name = "cmbResponseId";
-            this.cmbResponseId.Size = new System.Drawing.Size(384, 28);
+            this.cmbResponseId.Size = new System.Drawing.Size(257, 21);
             this.cmbResponseId.TabIndex = 1;
             this.cmbResponseId.ValueMember = "ID";
             this.cmbResponseId.SelectedIndexChanged += new System.EventHandler(this.CmbResponseId_SelectedIndexChanged);
@@ -311,10 +351,9 @@
             // chbIsEmergency
             // 
             this.chbIsEmergency.AutoSize = true;
-            this.chbIsEmergency.Location = new System.Drawing.Point(73, 286);
-            this.chbIsEmergency.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbIsEmergency.Location = new System.Drawing.Point(49, 194);
             this.chbIsEmergency.Name = "chbIsEmergency";
-            this.chbIsEmergency.Size = new System.Drawing.Size(132, 24);
+            this.chbIsEmergency.Size = new System.Drawing.Size(90, 17);
             this.chbIsEmergency.TabIndex = 64;
             this.chbIsEmergency.Text = "Is Emergency";
             this.chbIsEmergency.UseVisualStyleBackColor = true;
@@ -322,30 +361,27 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(69, 196);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(46, 138);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 20);
+            this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 57;
             this.label5.Text = "Response:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(69, 55);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(46, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 20);
+            this.label3.Size = new System.Drawing.Size(104, 13);
             this.label3.TabIndex = 54;
             this.label3.Text = "Incident Description:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 347);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(46, 226);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 50;
             this.label1.Text = "Time:";
             // 
@@ -379,14 +415,13 @@
             this.dgvIncidentList.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvIncidentList.DataSource = this.incidentBindingSource;
             this.dgvIncidentList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvIncidentList.Location = new System.Drawing.Point(0, 633);
-            this.dgvIncidentList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvIncidentList.Location = new System.Drawing.Point(0, 392);
             this.dgvIncidentList.MultiSelect = false;
             this.dgvIncidentList.Name = "dgvIncidentList";
             this.dgvIncidentList.ReadOnly = true;
             this.dgvIncidentList.RowHeadersWidth = 62;
             this.dgvIncidentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIncidentList.Size = new System.Drawing.Size(1943, 635);
+            this.dgvIncidentList.Size = new System.Drawing.Size(1283, 351);
             this.dgvIncidentList.TabIndex = 0;
             // 
             // iDDataGridViewTextBoxColumn
@@ -396,7 +431,7 @@
             this.iDDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 62;
+            this.iDDataGridViewTextBoxColumn.Width = 43;
             // 
             // ResponseId
             // 
@@ -415,7 +450,7 @@
             this.Address.MinimumWidth = 8;
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
-            this.Address.Width = 104;
+            this.Address.Width = 70;
             // 
             // AddressAdditional
             // 
@@ -424,7 +459,7 @@
             this.AddressAdditional.MinimumWidth = 8;
             this.AddressAdditional.Name = "AddressAdditional";
             this.AddressAdditional.ReadOnly = true;
-            this.AddressAdditional.Width = 174;
+            this.AddressAdditional.Width = 116;
             // 
             // StationResponseId
             // 
@@ -433,7 +468,7 @@
             this.StationResponseId.MinimumWidth = 8;
             this.StationResponseId.Name = "StationResponseId";
             this.StationResponseId.ReadOnly = true;
-            this.StationResponseId.Width = 183;
+            this.StationResponseId.Width = 122;
             // 
             // ReporterId
             // 
@@ -442,7 +477,7 @@
             this.ReporterId.MinimumWidth = 8;
             this.ReporterId.Name = "ReporterId";
             this.ReporterId.ReadOnly = true;
-            this.ReporterId.Width = 122;
+            this.ReporterId.Width = 82;
             // 
             // ReporterName
             // 
@@ -451,7 +486,7 @@
             this.ReporterName.MinimumWidth = 8;
             this.ReporterName.Name = "ReporterName";
             this.ReporterName.ReadOnly = true;
-            this.ReporterName.Width = 150;
+            this.ReporterName.Width = 101;
             // 
             // ReporterSurname
             // 
@@ -460,7 +495,7 @@
             this.ReporterSurname.MinimumWidth = 8;
             this.ReporterSurname.Name = "ReporterSurname";
             this.ReporterSurname.ReadOnly = true;
-            this.ReporterSurname.Width = 173;
+            this.ReporterSurname.Width = 115;
             // 
             // Emergency
             // 
@@ -469,7 +504,7 @@
             this.Emergency.MinimumWidth = 8;
             this.Emergency.Name = "Emergency";
             this.Emergency.ReadOnly = true;
-            this.Emergency.Width = 95;
+            this.Emergency.Width = 66;
             // 
             // Latitude
             // 
@@ -478,7 +513,7 @@
             this.Latitude.MinimumWidth = 8;
             this.Latitude.Name = "Latitude";
             this.Latitude.ReadOnly = true;
-            this.Latitude.Width = 103;
+            this.Latitude.Width = 70;
             // 
             // Longitude
             // 
@@ -487,7 +522,7 @@
             this.Longitude.MinimumWidth = 8;
             this.Longitude.Name = "Longitude";
             this.Longitude.ReadOnly = true;
-            this.Longitude.Width = 116;
+            this.Longitude.Width = 79;
             // 
             // contextMenuStrip1
             // 
@@ -496,41 +531,41 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 68);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 48);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(134, 32);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(134, 32);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // incidentBindingSource
             // 
             this.incidentBindingSource.DataSource = typeof(FleetManagment.BO.Incident);
             // 
-            // lblComment
+            // lblVehicles
             // 
-            this.lblComment.AutoSize = true;
-            this.lblComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComment.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblComment.Location = new System.Drawing.Point(60, 491);
-            this.lblComment.Name = "lblComment";
-            this.lblComment.Size = new System.Drawing.Size(0, 25);
-            this.lblComment.TabIndex = 79;
+            this.lblVehicles.AutoSize = true;
+            this.lblVehicles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVehicles.ForeColor = System.Drawing.Color.DarkCyan;
+            this.lblVehicles.Location = new System.Drawing.Point(40, 342);
+            this.lblVehicles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVehicles.Name = "lblVehicles";
+            this.lblVehicles.Size = new System.Drawing.Size(0, 17);
+            this.lblVehicles.TabIndex = 80;
             // 
             // IncidentListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1943, 1268);
+            this.ClientSize = new System.Drawing.Size(1283, 768);
             this.Controls.Add(this.toolStripContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "IncidentListForm";
             this.Text = "New Incident";
             this.Activated += new System.EventHandler(this.VehicleTypeListForm_Activated);
@@ -544,6 +579,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stationResponseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncidentList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -597,5 +633,9 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.BindingSource stationResponseBindingSource;
         private System.Windows.Forms.Label lblComment;
+        private System.Windows.Forms.ComboBox cmbStation;
+        private System.Windows.Forms.BindingSource stationBindingSource;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblVehicles;
     }
 }

@@ -71,9 +71,9 @@ namespace FleetManagment
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Help.ShowHelp(this,@"C:\Users\naims\Desktop\HELP\help.chm");
-            Help.ShowHelp(this,@"C:\Users\naims\Desktop\HELP\help.chm",HelpNavigator.Topic,"Raportimit.htm");
+            //Help.ShowHelp(this,@"C:\Users\naims\Desktop\HELP\help.chm",HelpNavigator.Topic,"Raportimit.htm");
             Process.Start(
-                @"D:\Faculty\Assistant\TI-2018\Projeki Teknologjise Internetit\Lirim Kuleta & Besfort Isufi\JS Hiking\index.html");
+                @"C:\Users\Korab Qarri\Desktop\TestSchool-master\Doracaku i perdorimit\Doracakuiperdorimit.html");
         }
 
         private void MainForm_Load(object sender, EventArgs e)

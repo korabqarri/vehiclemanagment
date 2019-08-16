@@ -104,7 +104,7 @@ namespace FleetManagment.DAL
         }
 
 
-        public IEnumerable<Vehicle> GetStationVehicles(int stationId)
+        public List<Vehicle> GetStationVehicles(int stationId)
         {
             using (IDbConnection connection = Connection())
             {
