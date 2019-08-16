@@ -45,6 +45,7 @@
     <Compile Include="City.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Incident.cs" />
+    <Compile Include="IncidentVehicle.cs" />
     <Compile Include="StationResponse.cs" />
     <Compile Include="Response.cs" />
     <Compile Include="Vehicle.cs" />

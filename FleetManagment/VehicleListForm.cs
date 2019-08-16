@@ -58,9 +58,10 @@ namespace FleetManagment
             vehicle.ID = (int)GetValue(rowIndex, 0);
             vehicle.LicensePlate = (string)GetValue(rowIndex, 1);
             vehicle.VehicleTypeName = (string)GetValue(rowIndex, 2);
-            vehicle.StationName = (string)GetValue(rowIndex, 3);
-            vehicle.VehicleTypeId = (int)GetValue(rowIndex, 4);
-            vehicle.StationId = (int)GetValue(rowIndex, 5);
+            vehicle.IsAvailable = (bool)GetValue(rowIndex, 3);
+            vehicle.StationName = (string)GetValue(rowIndex, 4);
+            vehicle.VehicleTypeId = (int)GetValue(rowIndex, 5);
+            vehicle.StationId = (int)GetValue(rowIndex, 6);
             return vehicle;
         }
 

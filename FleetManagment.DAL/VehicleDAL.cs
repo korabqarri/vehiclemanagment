@@ -23,6 +23,7 @@ namespace FleetManagment.DAL
                         DAO.AddParameter(command, "LastPosition", model.LastPosition);
                         DAO.AddParameter(command, "VehicleTypeId", model.VehicleTypeId);
                         DAO.AddParameter(command, "StationId", model.StationId);
+                        DAO.AddParameter(command, "IsAvailable", model.IsAvailable);
                         command.ExecuteNonQuery();
                         return true;
                     }
@@ -50,6 +51,7 @@ namespace FleetManagment.DAL
                         DAO.AddParameter(command, "LastPosition", model.LastPosition);
                         DAO.AddParameter(command, "VehicleTypeId", model.VehicleTypeId);
                         DAO.AddParameter(command, "StationId", model.StationId);
+                        DAO.AddParameter(command, "IsAvailable", model.IsAvailable);
                         command.ExecuteNonQuery();
                         return true;
                     }
@@ -101,6 +103,31 @@ namespace FleetManagment.DAL
             }
         }
 
+
+        public IEnumerable<Vehicle> GetStationVehicles(int stationId)
+        {
+            using (IDbConnection connection = Connection())
+            {
+                List<Vehicle> vehicles = null;
+                String sql = "usp_VehicleSelectByStation";
+                using (IDbCommand command = Command(connection, sql, CommandType.StoredProcedure))
+                {
+                    DAO.AddParameter(command, "StationId", stationId);
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        vehicles = new List<Vehicle>();
+                        while (reader.Read())
+                        {
+                            vehicles.Add(ToObject(reader));
+                        }
+                    }
+
+                    return vehicles;
+
+                }
+            }
+        }
+
         public Vehicle ToObject(IDataReader reader)
         {
             try
@@ -112,6 +139,7 @@ namespace FleetManagment.DAL
                 vehicle.StationId = (int)reader["StationId"];
                 vehicle.VehicleTypeName = (string)reader["VehicleTypeName"];
                 vehicle.StationName = (string)reader["StationName"];
+                vehicle.IsAvailable = (bool)reader["IsAvailable"];
                 return vehicle;
             }
             catch (Exception e)

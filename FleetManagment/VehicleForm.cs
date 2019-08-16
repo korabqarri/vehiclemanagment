@@ -122,6 +122,7 @@ namespace FleetManagment
             vehicle.LicensePlate = (string)txtLicensePlate.Text;
             vehicle.VehicleTypeId = (int)cmbVehicleTypeId.SelectedValue;
             vehicle.StationId = (int)cmbStationId.SelectedValue;
+            vehicle.IsAvailable = (bool)checkAvailable.Checked;
             return vehicle;
         }
 
@@ -134,6 +135,7 @@ namespace FleetManagment
         {
             cmbVehicleTypeId.SelectedIndex = -1;
             txtLicensePlate.Text = "";
+            checkAvailable.Checked = false;
             vehicle = null;
         }
 
@@ -153,6 +155,7 @@ namespace FleetManagment
             vehicle.LicensePlate = (string)txtLicensePlate.Text;
             vehicle.VehicleTypeId = (int)cmbVehicleTypeId.SelectedValue;
             vehicle.StationId = (int)cmbStationId.SelectedValue;
+            vehicle.IsAvailable = (bool)checkAvailable.Checked;
 
             return vehicle;
         }

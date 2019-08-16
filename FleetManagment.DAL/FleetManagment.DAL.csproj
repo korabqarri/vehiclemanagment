@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IncidentDAL.cs" />
+    <Compile Include="IncidentVehicleDAL.cs" />
     <Compile Include="VehicleDAL.cs" />
     <Compile Include="EmployeeDAL.cs" />
     <Compile Include="Infrastructure\DataAccessObject.cs" />

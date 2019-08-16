@@ -20,6 +20,9 @@ namespace FleetManagment
         {
             userBLL = new UserAccountBLL();
             InitializeComponent();
+            CultureInfo ci = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -60,20 +63,6 @@ namespace FleetManagment
             {
                 btnOk.PerformClick();
             }
-        }
-
-        private void rbAlb_CheckedChanged(object sender, EventArgs e)
-        {
-            CultureInfo ci = new CultureInfo("sq");
-            Thread.CurrentThread.CurrentCulture = ci;
-            Thread.CurrentThread.CurrentUICulture = ci;
-        }
-
-        private void rbEng_CheckedChanged(object sender, EventArgs e)
-        {
-            CultureInfo ci = new CultureInfo("en-US");
-            Thread.CurrentThread.CurrentCulture = ci;
-            Thread.CurrentThread.CurrentUICulture = ci;
         }
     }
 }

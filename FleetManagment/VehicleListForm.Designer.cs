@@ -43,6 +43,7 @@
             this.LicensePlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VehicleTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VehicleTypeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -61,15 +62,13 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dgvVehicleList);
-            this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1200, 659);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 419);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.LeftToolStripPanelVisible = false;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(1200, 692);
+            this.toolStripContainer1.Size = new System.Drawing.Size(800, 450);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -88,19 +87,19 @@
             this.LicensePlate,
             this.VehicleTypeName,
             this.StationName,
+            this.IsAvailable,
             this.VehicleTypeId,
             this.StationId});
             this.dgvVehicleList.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvVehicleList.DataSource = this.vehicleBindingSource;
             this.dgvVehicleList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVehicleList.Location = new System.Drawing.Point(0, 0);
-            this.dgvVehicleList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvVehicleList.MultiSelect = false;
             this.dgvVehicleList.Name = "dgvVehicleList";
             this.dgvVehicleList.ReadOnly = true;
             this.dgvVehicleList.RowHeadersWidth = 62;
             this.dgvVehicleList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVehicleList.Size = new System.Drawing.Size(1200, 659);
+            this.dgvVehicleList.Size = new System.Drawing.Size(800, 419);
             this.dgvVehicleList.TabIndex = 0;
             this.dgvVehicleList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVehicleList_CellContentClick);
             // 
@@ -111,19 +110,19 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 68);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 48);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(134, 32);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(134, 32);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -141,7 +140,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(4, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(120, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(91, 31);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripButton3
@@ -150,7 +149,7 @@
             this.toolStripButton3.Image = global::FleetManagment.Properties.Resources.Button_Add_icon;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(34, 28);
+            this.toolStripButton3.Size = new System.Drawing.Size(28, 28);
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.ToolStripButton3_Click);
             // 
@@ -160,14 +159,14 @@
             this.toolStripButton2.Image = global::FleetManagment.Properties.Resources.Button_Refresh_icon;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(34, 28);
+            this.toolStripButton2.Size = new System.Drawing.Size(28, 28);
             this.toolStripButton2.Text = "toolStripButton2";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(34, 28);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 28);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -205,6 +204,13 @@
             this.StationName.ReadOnly = true;
             this.StationName.Width = 150;
             // 
+            // IsAvailable
+            // 
+            this.IsAvailable.DataPropertyName = "IsAvailable";
+            this.IsAvailable.HeaderText = "Available";
+            this.IsAvailable.Name = "IsAvailable";
+            this.IsAvailable.ReadOnly = true;
+            // 
             // VehicleTypeId
             // 
             this.VehicleTypeId.DataPropertyName = "VehicleTypeId";
@@ -227,13 +233,12 @@
             // 
             // VehicleListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStripContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "VehicleListForm";
-            this.Text = "Cities List";
+            this.Text = "Vehicles List";
             this.Activated += new System.EventHandler(this.VehicleTypeListForm_Activated);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
@@ -266,6 +271,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LicensePlate;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StationName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsAvailable;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleTypeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn StationId;
     }
