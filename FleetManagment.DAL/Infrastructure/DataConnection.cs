@@ -9,7 +9,7 @@ namespace FleetManagment.DAL.Infrastructure
     {
         public string ConnectionString => ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
-        #region Naim DataConnection need
+        #region DataConnection
         public IDbConnection Connection()
         {
 
